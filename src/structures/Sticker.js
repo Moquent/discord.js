@@ -259,28 +259,22 @@ class Sticker extends Base {
    * @returns {boolean}
    */
   equals(other) {
-    if (other instanceof Sticker) {
-      return (
-        other.id === this.id &&
-        other.description === this.description &&
-        other.type === this.type &&
-        other.format === this.format &&
-        other.name === this.name &&
-        other.packId === this.packId &&
-        other.tags.length === this.tags.length &&
-        other.tags.every(tag => this.tags.includes(tag)) &&
-        other.available === this.available &&
-        other.guildId === this.guildId &&
-        other.sortValue === this.sortValue
-      );
-    } else {
-      return (
-        other.id === this.id &&
-        other.description === this.description &&
-        other.name === this.name &&
-        other.tags === this.tags.join(', ')
-      );
-    }
+    return other instanceof Sticker
+      ? other.id === this.id &&
+          other.description === this.description &&
+          other.type === this.type &&
+          other.format === this.format &&
+          other.name === this.name &&
+          other.packId === this.packId &&
+          other.tags.length === this.tags.length &&
+          other.tags.every(tag => this.tags.includes(tag)) &&
+          other.available === this.available &&
+          other.guildId === this.guildId &&
+          other.sortValue === this.sortValue
+      : other.id === this.id &&
+          other.description === this.description &&
+          other.name === this.name &&
+          other.tags === this.tags.join(', ');
   }
 }
 

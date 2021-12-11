@@ -482,11 +482,10 @@ class GuildChannel extends Channel {
       this.name === channel.name;
 
     if (equal) {
-      if (this.permissionOverwrites && channel.permissionOverwrites) {
-        equal = this.permissionOverwrites.cache.equals(channel.permissionOverwrites.cache);
-      } else {
-        equal = !this.permissionOverwrites && !channel.permissionOverwrites;
-      }
+      equal =
+        this.permissionOverwrites && channel.permissionOverwrites
+          ? this.permissionOverwrites.cache.equals(channel.permissionOverwrites.cache)
+          : !this.permissionOverwrites && !channel.permissionOverwrites;
     }
 
     return equal;

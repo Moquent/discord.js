@@ -78,11 +78,10 @@ class Util extends null {
     if (Array.isArray(char)) {
       while (char.length > 0 && splitText.some(elem => elem.length > maxLength)) {
         const currentChar = char.shift();
-        if (currentChar instanceof RegExp) {
-          splitText = splitText.flatMap(chunk => chunk.match(currentChar));
-        } else {
-          splitText = splitText.flatMap(chunk => chunk.split(currentChar));
-        }
+        splitText =
+          currentChar instanceof RegExp
+            ? splitText.flatMap(chunk => chunk.match(currentChar))
+            : splitText.flatMap(chunk => chunk.split(currentChar));
       }
     } else {
       splitText = text.split(char);
