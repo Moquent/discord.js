@@ -184,7 +184,8 @@ class Webhook {
 
     let messagePayload;
 
-    messagePayload = options instanceof MessagePayload ? options.resolveData() : MessagePayload.create(this, options).resolveData();
+    messagePayload =
+      options instanceof MessagePayload ? options.resolveData() : MessagePayload.create(this, options).resolveData();
 
     const { data, files } = await messagePayload.resolveFiles();
     const d = await this.client.api.webhooks(this.id, this.token).post({

@@ -165,7 +165,8 @@ class TextBasedChannel {
 
     let messagePayload;
 
-    messagePayload = options instanceof MessagePayload ? options.resolveData() : MessagePayload.create(this, options).resolveData();
+    messagePayload =
+      options instanceof MessagePayload ? options.resolveData() : MessagePayload.create(this, options).resolveData();
 
     const { data, files } = await messagePayload.resolveFiles();
     const d = await this.client.api.channels[this.id].messages.post({ data, files });
