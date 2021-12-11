@@ -188,7 +188,7 @@ class Options extends null {
     return manager => {
       const setting = settings[manager.name];
       /* eslint-disable-next-line eqeqeq */
-      if (setting == null) {
+      if (setting === null) {
         return new Collection();
       }
       if (typeof setting === 'number') {
@@ -199,11 +199,11 @@ class Options extends null {
       }
       /* eslint-disable eqeqeq */
       const noSweeping =
-        setting.sweepFilter == null ||
-        setting.sweepInterval == null ||
+        setting.sweepFilter === null ||
+        setting.sweepInterval === null ||
         setting.sweepInterval <= 0 ||
         setting.sweepInterval === Infinity;
-      const noLimit = setting.maxSize == null || setting.maxSize === Infinity;
+      const noLimit = setting.maxSize === null || setting.maxSize === Infinity;
       /* eslint-enable eqeqeq */
       if (noSweeping && noLimit) {
         return new Collection();

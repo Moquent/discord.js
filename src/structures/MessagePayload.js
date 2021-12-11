@@ -149,7 +149,7 @@ class MessagePayload {
     let flags;
     if (this.isMessage || this.isMessageManager) {
       // eslint-disable-next-line eqeqeq
-      flags = this.options.flags != null ? new MessageFlags(this.options.flags).bitfield : this.target.flags?.bitfield;
+      flags = this.options.flags !== null ? new MessageFlags(this.options.flags).bitfield : this.target.flags?.bitfield;
     } else if (isInteraction && this.options.ephemeral) {
       flags = MessageFlags.FLAGS.EPHEMERAL;
     }

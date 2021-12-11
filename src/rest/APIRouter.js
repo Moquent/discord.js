@@ -43,7 +43,7 @@ function buildRoute(manager) {
       return new Proxy(noop, handler);
     },
     apply(target, _, args) {
-      route.push(...args.filter(x => x != null)); // eslint-disable-line eqeqeq
+      route.push(...args.filter(x => x !== null)); // eslint-disable-line eqeqeq
       return new Proxy(noop, handler);
     },
   };
