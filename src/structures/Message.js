@@ -454,7 +454,7 @@ class Message extends Base {
    */
   get cleanContent() {
     // eslint-disable-next-line eqeqeq
-    return this.content != null ? Util.cleanContent(this.content, this.channel) : null;
+    return this.content !== null ? Util.cleanContent(this.content, this.channel) : null;
   }
 
   /**

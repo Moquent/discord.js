@@ -62,7 +62,7 @@ class APIRequest {
       }
       headers = Object.assign(headers, body.getHeaders());
       // eslint-disable-next-line eqeqeq
-    } else if (this.options.data != null) {
+    } else if (this.options.data !== null) {
       body = JSON.stringify(this.options.data);
       headers['Content-Type'] = 'application/json';
     }
