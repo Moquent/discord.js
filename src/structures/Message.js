@@ -789,16 +789,12 @@ class Message extends Base {
     if (!this.channel) return Promise.reject(new Error('CHANNEL_NOT_CACHED'));
     let data;
 
-    if (options instanceof MessagePayload) {
-      data = options;
-    } else {
-      data = MessagePayload.create(this, options, {
+    data = options instanceof MessagePayload ? options : MessagePayload.create(this, options, {
         reply: {
           messageReference: this,
           failIfNotExists: options?.failIfNotExists ?? this.client.options.failIfNotExists,
         },
       });
-    }
     return this.channel.send(data);
   }
 

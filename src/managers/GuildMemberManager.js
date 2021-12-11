@@ -252,8 +252,7 @@ class GuildMemberManager extends CachedManager {
     let endpoint = this.client.api.guilds(this.guild.id);
     if (id === this.client.user.id) {
       const keys = Object.keys(_data);
-      if (keys.length === 1 && keys[0] === 'nick') endpoint = endpoint.members('@me').nick;
-      else endpoint = endpoint.members(id);
+      endpoint = keys.length === 1 && keys[0] === 'nick' ? endpoint.members('@me').nick : endpoint.members(id);
     } else {
       endpoint = endpoint.members(id);
     }

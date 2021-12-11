@@ -147,24 +147,16 @@ class GuildEmoji extends BaseGuildEmoji {
    * @returns {boolean}
    */
   equals(other) {
-    if (other instanceof GuildEmoji) {
-      return (
-        other.id === this.id &&
+    return other instanceof GuildEmoji ? (other.id === this.id &&
         other.name === this.name &&
         other.managed === this.managed &&
         other.available === this.available &&
         other.requiresColons === this.requiresColons &&
         other.roles.cache.size === this.roles.cache.size &&
-        other.roles.cache.every(role => this.roles.cache.has(role.id))
-      );
-    } else {
-      return (
-        other.id === this.id &&
+        other.roles.cache.every(role => this.roles.cache.has(role.id))) : (other.id === this.id &&
         other.name === this.name &&
         other.roles.length === this.roles.cache.size &&
-        other.roles.every(role => this.roles.cache.has(role))
-      );
-    }
+        other.roles.every(role => this.roles.cache.has(role)));
   }
 }
 

@@ -91,8 +91,7 @@ class InteractionResponses {
     this.ephemeral = options.ephemeral ?? false;
 
     let messagePayload;
-    if (options instanceof MessagePayload) messagePayload = options;
-    else messagePayload = MessagePayload.create(this, options);
+    messagePayload = options instanceof MessagePayload ? options : MessagePayload.create(this, options);
 
     const { data, files } = await messagePayload.resolveData().resolveFiles();
 
@@ -205,8 +204,7 @@ class InteractionResponses {
     if (this.deferred || this.replied) throw new Error('INTERACTION_ALREADY_REPLIED');
 
     let messagePayload;
-    if (options instanceof MessagePayload) messagePayload = options;
-    else messagePayload = MessagePayload.create(this, options);
+    messagePayload = options instanceof MessagePayload ? options : MessagePayload.create(this, options);
 
     const { data, files } = await messagePayload.resolveData().resolveFiles();
 
