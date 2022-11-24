@@ -359,6 +359,11 @@
  */
 
 /**
+ * @external ShardStatusCodes
+ * @see {@link https://discord.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-opcodes}
+ */
+
+/**
  * @external SortOrderType
  * @see {@link https://discord-api-types.dev/api/discord-api-types-v10/enum/SortOrderType}
  */
